@@ -18,17 +18,15 @@ def drawBoard():
 
     canvas += "|\n"
     for i in range(board_size):
+        canvas += size_mult * "-" + board_size * "|-" + "|\n"
         canvas += str(i+1) + " |" if (i+1) < 10 else str(i+1) + "|"
 
         for j in range(board_size):
             canvas += board[j][i] + "|"
         canvas += "\n"
 
-
-            
-    canvas += "|\n"
-
-
+    canvas += size_mult * "-" + board_size * "|-" + "|\n"
+        
 
     print(canvas)
 
