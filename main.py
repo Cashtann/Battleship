@@ -1,15 +1,15 @@
 import random
 
-board = []
+generic_board = []
 row = []
 board_size = 10
 for i in range(board_size):
     row.append("X")
 for i in range(board_size):
-    board.append(row)
+    generic_board.append(row)
 
 
-def drawBoard():
+def drawBoard(board, draw = True) -> list:
     size_mult = 1 if board_size < 10 else 2
     canvas = size_mult * " "
 
@@ -27,10 +27,22 @@ def drawBoard():
 
     canvas += size_mult * "-" + board_size * "|-" + "|\n"
         
+    if draw:
+        print(canvas)
+    else:
+        return canvas.split("\n")
+        
+    return []
 
-    print(canvas)
+def draw2boards(b1 : list, b2 : list):
+    board1 = drawBoard(b1, False)
+    board2 = drawBoard(b2, False)
+    result = ""
+    spacer = "    "
+    for i in range(len(board1)):
+       result += board1[i-1] + spacer + board2[i-1] + "\n"
 
-drawBoard()
+    print(result)
 
-
+draw2boards(generic_board, generic_board)
 
